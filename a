@@ -1,0 +1,14 @@
+for (let i = 0; i < numPoints; i++) {                  
+  if (i == 3 || i == 4) continue;  
+  var a = new Vector4([...getVertex(i), 0.0, 1.0]);              
+  var [x,y] = getVertex(i);
+  a.elements[0] = x;
+  a.elements[1] = y;
+  a = modelMatrix.multiplyVector4(a); 
+  nx = a.elements[0] - x;
+  ny = a.elements[1] - y;  
+  
+  if(a.elements[0] >= 5/2|| a.elements[0] <= -5/2){
+     increment = -increment;break;}
+  else if(a.elements[1] >= 5/2 || a.elements[1] <= -5/2) {increment = -increment;break;}
+}   
